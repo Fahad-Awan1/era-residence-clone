@@ -1,0 +1,183 @@
+/* Layout changes that let phones and tablets run the same scroll scenes as desktop.
+   The source site stacks or hides these sections below 992px. */
+@media screen and (max-width: 991px) {
+  /* Hero: a render taller than the screen, so the page can pan up it before zooming through.
+     Width follows height at the image's 10:9 ratio so the pins stay on their features. */
+  .hero-scroll-area {
+    height: calc(
+      (var(--_special-units---100vh) * 4) +
+        (50rem + var(--_special-units---100vh))
+    );
+  }
+  .hero-w_bg_master {
+    max-height: none;
+  }
+  .hero-w_bg_master_img {
+    width: calc(var(--_special-units---100vh) * 1.6);
+    left: 50%;
+    margin-left: calc(var(--_special-units---100vh) * -0.8);
+  }
+  .img.h-auto.hero-img {
+    min-height: 0;
+  }
+  .hero-s_tabs {
+    display: flex;
+    grid-column-gap: var(--_units---u-8);
+    grid-row-gap: var(--_units---u-8);
+  }
+  .hero-s_tabs_divider {
+    width: var(--_units---u-16);
+  }
+  .hero-s_title .span {
+    white-space: nowrap;
+  }
+
+  /* Scroll rail and hint sit in the page gutter, clear of the full-width text. */
+  .s-bar-w {
+    display: flex;
+    left: 0;
+    width: var(--_special-units---offset-l);
+  }
+  .s-bar {
+    display: flex;
+  }
+  .s-bar_thumb {
+    touch-action: none;
+  }
+  .s-down {
+    display: flex;
+    left: 0;
+    height: var(--_special-units---offset-l);
+  }
+
+  /* Slides may be taller than a short or tablet screen; let the section grow with them. */
+  .benefits-s {
+    height: auto;
+    min-height: var(--_special-units---100vh);
+  }
+
+  /* Quote over the pool. */
+  .quote-w_bg {
+    aspect-ratio: auto;
+    height: calc(var(--_special-units---100vh) * 1.2);
+  }
+
+  /* Location: one sticky screen whose panels travel sideways. */
+  .container.loc {
+    padding-right: 0;
+  }
+  .loc-scroll-area_screen {
+    position: sticky;
+    flex-flow: row;
+  }
+  .loc-scroll-area_track {
+    flex-flow: row;
+  }
+  .loc-info-w {
+    width: calc(
+      (var(--_special-units---1-cell-h) * 4) +
+        (var(--_special-units---grid-gap) * 3)
+    );
+  }
+  .loc-info-s,
+  .loc-intro-s,
+  .loc-path-s {
+    height: var(--_special-units---100vh);
+  }
+  .loc-info-s {
+    justify-content: space-between;
+  }
+  .loc-info-s_t,
+  .loc-info-s_b {
+    flex: 1;
+  }
+  .loc-intro-w {
+    width: calc(
+      (var(--_special-units---1-cell-h) * 13) +
+        (var(--_special-units---grid-gap) * 12)
+    );
+  }
+  .loc-intro-s .b-mob,
+  .loc-path-s .b-mob {
+    display: none;
+  }
+  .loc-intro-s .b-desk,
+  .loc-path-s .b-desk {
+    display: block;
+  }
+  .grid._13-columns {
+    grid-template-columns: repeat(13, 1fr);
+  }
+  .loc-intro-s_cap {
+    grid-area: 1/2/2/4;
+  }
+  .loc-intro-s_title {
+    grid-area: 1/3/2/8;
+  }
+  .loc-intro-s_title_line.is-2 {
+    margin-left: calc(
+      (var(--_special-units---1-cell-h)) + (var(--_special-units---grid-gap))
+    );
+    text-align: left;
+  }
+  .loc-intro-s_img {
+    aspect-ratio: auto;
+    grid-area: 1/6/2/10;
+  }
+  .loc-intro-s_desc {
+    grid-area: 1/10/2/13;
+  }
+  .loc-intro-s_btn {
+    grid-area: 1/12/2/14;
+  }
+  /* The route spans the wide panel; its title sits at the end, where the track comes to rest. */
+  .loc-path-w {
+    width: calc(
+      (var(--_special-units---1-cell-h) * 10) +
+        (var(--_special-units---grid-gap) * 9)
+    );
+    margin-right: var(--_special-units---offset-r);
+  }
+  .loc-path-s {
+    justify-content: space-between;
+  }
+  .loc-path-s .grid {
+    grid-template-columns: repeat(10, 1fr);
+  }
+  .loc-path-s_title {
+    grid-area: 1/7/2/11;
+  }
+  .loc-path-s_path {
+    margin-left: 0;
+    margin-right: 0;
+    grid-area: 1/1/2/11;
+    overflow: visible;
+  }
+  .loc-path-s_path_c {
+    width: 100%;
+  }
+  .loc-path-w_flower {
+    display: block;
+  }
+
+  /* Architecture: the framed windows pin over the sticky scene. The scene is tall enough to
+     keep the quote below the fold at 75% scale, and the heading starts inside the window. */
+  .arch-w {
+    position: sticky;
+  }
+  .arch-s {
+    aspect-ratio: auto;
+    height: calc(var(--_special-units---100vh) * 1.75);
+  }
+  .arch-s_t {
+    padding-top: calc(var(--_special-units---100vh) * 0.2);
+  }
+
+  /* Pin tooltips are centred by the motion layer, not offset beside the cursor. */
+  .floating-tips {
+    display: block;
+  }
+  .floating-tip .floating-tip-card {
+    --tip-x: 0px;
+  }
+}
